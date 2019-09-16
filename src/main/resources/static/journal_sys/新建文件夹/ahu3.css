@@ -1,0 +1,483 @@
+/*样式初始化*/body{ font-family:"微软雅黑"; margin:0; padding:0; color:#333; background:#e9e9e9}
+ul, li, h1, h2, h3, h4, h5, h6, span, p, input, button {list-style: none;margin: 0;padding: 0;outline: none;font-weight: normal;border:0;font-family:"微软雅黑";}
+a {text-decoration:none;color: #3d6e94;}img {border: 0;}
+em, i {font-style: normal;}
+.clear_all{ clear:both}
+.red{ color:red; font-weight:bold}
+.footer{text-align:center;background-image:url(../images/Bg.png);background-repeat:repeat-x;background-position:top center;border-top:1px solid #F5F5F5;border-bottom:1px solid #F5F5F5;height:70px;line-height:70px;bottom:0px;right:0px;left:0px;margin-bottom:0px;clear:both;}
+.bg_e9{background: #e9e9e9;}
+.cont_r_j{width: 100%;}
+.fl{float: left}
+.fr{float: right;}
+/*header*/
+.header{background:#2c70a1; height:140px; }
+.top{ height:70px; padding:0 10px; line-height:50px;}
+.logo{ float:left; font-size:24px; color:#fff; font-weight:bold; margin-top:10px;}
+.info{ float:right; text-align:right; color:#fff; line-height:40px}
+.info a{ color: white; font-size: 14px; font-weight:bold; cursor: pointer;font-weight:normal; display:inline-block; height:40px; margin:0 10px}
+.menu{ text-align:center; width:600px; position:absolute; top:40px; left:50%; margin-left:-300px; z-index:999}
+.item li{ width:100px; float:left; height:70px; line-height:70px; text-align:center; color:#fff}
+.item li a{ color:#fff; text-decoration:none}
+.item li span{ font-weight:bold;font-size:18px; cursor: pointer;}
+.item li i{ background: url(../images/menu_icon.png) no-repeat; width:20px; height:20px; display:inline-block; margin:2px 5px 0 0; vertical-align:middle; display:none; display:none}
+.item li i.book_icon{ background-position:-5px -9px}
+.item li i.hot_icon{ background-position:-5px -41px}
+.item li i.refer_icon{ background-position:-5px -77px}
+.item li i.journal_icon{ background-position:-5px -111px}
+.item li i.recom_icon{ background-position:-5px -140px}
+.item li i.info_icon{ background-position:-5px -175px}
+.item li i.my_icon{ background-position:-5px -208px}
+.item li:hover{ background:rgba(255,255,255,0.3)}
+.sub_item{ position: absolute; width: 100%; background:rgba(0,0,0,0.7); display: none;top:70px}
+.sub_item ul{width: 100px; line-height: 35px; font-size: 15px;  float:left; text-align:center}
+.sub_item ul a{ color:#fff; text-decoration:none; z-index:99}
+.serach_wrap{ width:880px; background:#fff;  border-radius:5px; height:50px; line-height:50px; margin:0px auto;margin-top:12px; position:relative;z-index:0 }
+.serach_wrap .layui-input{ border:0; max-width:800px; height:50px;line-height:50px; display:inline-block;border-radius:5px 0 0 5px; vertical-align:top; float:left; color:#2c70a1}
+.serach_wrap .layui-icon-close{ color:#2c70a1; font-size:30px; height:36px; width:36px;  line-height:36px; text-align:center; margin-top:8px;position:absolute; right:275px;}
+.serach_wrap .layui-icon-close:hover{ background:#eee; border-radius:40px; cursor:pointer}
+
+.search_sele01{width:100px; position:absolute; right:250px;  border:0;appearance: none; -moz-appearance: none; -webkit-appearance: none;padding-right: 10px; cursor: pointer;}
+.search_sele02{width:100px; position:absolute; right:130px; border:0; appearance: none; -moz-appearance: none; -webkit-appearance: none;padding-right: 14px; cursor: pointer;}
+.search_sele03{width:100px; position:absolute; right:30px; border:0; appearance: none; -moz-appearance: none; -webkit-appearance: none;padding-right: 14px; cursor: pointer;}
+
+.head_search{width: 30px; height: 30px; background: url(../images/search.png) no-repeat;margin:12px 6px 0 6px;cursor:pointer;position:absolute; right:2px; }
+/*标题栏*/.myHeadLine {height:50px;line-height: 50px; margin:0 20px; border-bottom:1px solid #d5d5d5}
+.myHeadLine h4{font-size:20px; font-weight:bold; float: left;}
+.myHeadLine .tips{float: left; font-size: 16px;font-style: italic; }
+.tips span{margin-left: 20px;font-size: 16px;}
+
+.bt{font-size:20px; font-weight:bold; margin:0 0 20px 0}
+.find_font{ font-size:18px; font-style:italic; margin-bottom:10px; }
+/*简单检索*/.form_wrap{ width:690px; margin:50px 0 0 50px}
+.layui-form-item .label_wid{ width:120px;}
+.layui-form-item .label_wid_select{ width:120px; padding:0 15px}
+.layui-form-item .label_wid_select01{ width:110px; }
+.layui-form-item .btn_s{ width:76px}
+.layui-form-item .hot_today { width:530px}
+.layui-form-item .hot_today a{ display:inline-block; color:#333; padding:4px 10px; margin:6px 8px 0 0; cursor:pointer;}
+.his_hot_s{ margin:0 10px; margin-top:20px ; text-align:left}
+.his_hot_s .layui-input-inline {  height:36px; line-height:36px;  margin-bottom:10px; text-align:left; margin:0 10px; width:230px }
+.his_hot_s .layui-input-inline a:hover{ background:#fff; color:#3d6e94}
+.font_info{padding:8px 10px; border-radius:3px; margin-top:40px}
+.font_info p{ color:#333}
+.search_btn{ text-align:center; margin-top:50px}
+/*热门推荐*/.classify{ margin:10px 20px; }
+.classify_li{ float:left; display:block; width:200px; line-height:30px;}
+.classify_li a:hover{ background:#fff;color: #3d6e94;}
+.table_wrap{ margin:10px 20px; box-shadow:0px 2px 8px #bbb}
+.oneline{ margin:20px;}
+.oneline .one_label{ width:auto; display:block; float:left; padding:9px 15px 9px 0;}
+.oneline .wdkc_btns{ width: 300px;}
+/*学科参考*/.intro{margin:20px;}
+.intro h4{ font-size:20px; line-height:40px; color: #000}
+.intro ul li{ line-height:25px; color:#666;}
+.intro ul li b{ color:#333}
+.ggsj_l{ width:200px; position: absolute; left: 40px; margin-top:30px;}
+.ggsj_l h5{font-size: 20px;font-weight: bold;margin-bottom:20px;}
+.ggsj_l ul li a{font-size: 14px;font-weight: bold; line-height: 30px;color: #333;}
+.ggsj_r{margin-left: 230px;margin-top:30px;}
+.ggsj_r table{ margin: 0;}
+.ggsj_r .table_wrap{ margin:10px 20px 0 0;}
+.ggsj_r label{font-size: 20px;font-weight: bold;margin-bottom: 20px;}
+/*期刊导航*/.letter_nav{margin:10px 20px;}
+.letter_nav a{ cursor:pointer;display:inline-block; font-size:18px; text-align:center; margin:12px 10px 10px 0;color:#333; text-decoration:none}
+.letter_nav a:hover,.letter_nav a.current{ color:#2c70a1; text-decoration:none  }
+/*读者荐购*/
+.dzjg_cont{margin: 20px 20px 0 40px;}
+.form_li label{display: inline-block; width: 80px; text-align: right;}
+.tab_nav{ margin:20px}
+.img_procedure{text-align: center; background:url(../images/dzjglc_bg.jpg) repeat-x; margin:1px 20px 0px 20px; padding: 20px 0;}
+.dzjg_btns{margin-left: 110px;margin-bottom: 30px}
+.form_li textarea{border-color: #e9e9e9; resize: none; padding: 6px;}
+.form_li strong{ margin: 0 8px; color:rgba(255,0,0,1.00)}
+.form_li span{display: inline-block; width: 200px;}
+.dzjg_tips{margin-left: 110px; line-height: 25px;}
+.dzjg_tips a{font-weight: bold; margin: 0 10px;}
+.jg_result{ margin: 20px; font-size: 16px;}
+.jg_result a{ line-height: 40px; color:#3d6e94; font-weight: bold;}
+.jgcc_tips{ margin: 10px 20px; color: #666}
+.jgcc_tips a{font-weight: bold; text-decoration: underline;}
+.buy_btn{position: absolute;right: 0; font-style: normal;cursor: pointer;color: #3d6e94;font-weight: bold; text-decoration: underline}
+/*详情页*/
+.l_item{ width:250px; position:absolute; left:40px; height:800px; overflow-y:auto; margin-top:30px}
+.l_item a{ font-size:14px;  line-height:30px; color:#333; cursor:pointer}
+.l_item strong{ font-size:20px; color:#034581}
+.l_item .all_class{  font-size:18px; font-weight:normal}
+.r_cont{ width:930px; padding-left:300px; margin-top:30px}
+.book_list_info{border-bottom: 1px dotted #e5e5e5; padding-bottom: 15px;padding-top:10px; background:#f3f3f3;box-shadow: 0px 3px 5px #ccc;}
+.book_list_info:hover{ background:#fff}
+.book_list_info p a{ font-size:14px;}
+/*我的图书馆*/
+.space30{height: 30px;}
+.login_tit{  margin-bottom: 24px;}
+.login_tit img{margin-left: -8px;}
+.login_left .layui-input-inline input{ width:300px; height:34px;}
+.login_left .log_wid input{ width:70px; height:34px;}
+.login_left .log_wid input.checkCode{ width:70px; height:28px;}
+.login_error{height:30px; line-height: 30px; color:#ff0000}
+.btn_box a{ text-decoration: underline; margin-left: 10px;}
+.btn_box input{border-radius: 2px; height: 40px; width:120px; line-height: 40px; background:#2c70a1;color:white; cursor: pointer; font-size: 16px;}
+.btn_box input:hover{background: #3a82b5;}
+.btn_box .white_btn{background: #fff; border: 1px solid #c9c9c9; color: #555;}
+.cont_tit{ color:#333; font-weight:bold; font-size:18px; margin-bottom:10px}
+.xgxx_btns{margin-left: 112px;}
+.margin_l{margin-left: 110px;height: 30px;color: red;}
+
+.menu_l{ position:absolute; left:0;}
+.menu_l a{ font-size:16px; font-weight:bold; text-indent:30px; height:30px ; width:160px; line-height:30px; display:inline-block; color:#333; margin-top:20px}
+.menu_l a:hover{color: red;}
+.cont_r{background:#f3f3f3; margin:15px 20px 0 160px; padding:20px}
+.cont_r .layui-table{box-shadow: 0px 2px 8px #ccc;}
+
+.change_l{ width:450px; float:left; padding-top:15px}
+.change_r{ width:400px; float:left; padding-top:15px}
+.change_r h5{color: #3d6e94;margin-bottom: 15px;font-size: 16px;}
+.font_note{line-height:30px;margin-top:10px;}
+.person_img{width: 230px; text-align: center}
+.person_img p{ text-align: center; margin: 0 auto; width:120px; height:120px; overflow:hidden; background:#f3f3f3;}
+.person_img p img{ width:100%; height:auto;}
+.person_img a{ display: inline-block; margin: 20px 4px;}
+.bookshelf_back{ margin-left: 20px; line-height:25px;  font-size: 15px;}
+
+
+.box_bgcolor {font-size: 14px;}
+.box_bgcolor1 {font-size: 14px;font-weight: bold;padding: 5px;padding-left: 14px;line-height: 150%;border-bottom: 1px dotted #ccc;margin-bottom: 10px;background-image: url('../images/Bg.png');background-repeat: repeat-x;background-position: bottom center;/*color: #280be2;*//*border-bottom: 1px solid #ccdbe5;*/border: 1px solid #e5e5e5;}
+.greytext {background-image: url('../images/Bg.png');background-repeat: repeat-x;background-position: bottom center;font-family: '微软雅黑';font-weight: bolder;font-size: 14px; line-height: 34px;}
+.table_line {width: 100%;border: 0;margin-top: 10px;border: 1px solid #ccc;text-align: left;}
+.table_line1 {/*margin-top:10px;*/table-layout: fixed; /*不换行*/width: 100%;border: 0;border-top: 1px solid #ccc;text-align: left;}
+.table_line1 tr {border-bottom: 1px dotted #ccc;}
+.table_line1 td { /*不换行*/overflow: hidden;white-space: nowrap;text-overflow: ellipsis;word-break: keep-all;}
+.table_line td {border-bottom: 1px dashed #d7d7d7;}
+.typeBox {padding-left: 40px;padding-top: 10px;padding-bottom: 10px;}
+.typeBoxSpan {min-width: 138px;display: inline-block;}
+.topbar {background-color: rgba(42, 16, 16, 0.78);height: 40px;line-height: 40px;}
+.topbar a {color: blue;}
+.bluetext {color: #5f5f5f;font-family: '微软雅黑';font-weight: bolder;}
+.bluetext1 {color: #5f5f5f;font-weight: bolder;}
+.usercenter div {width: 100px;font-size: 14px;/*border-bottom: 1px dashed #ccc;border-right: 1px dashed #ccc;*/padding: 7px 0 6px 17px;background-image: url(../images/icon_arr.gif);background-repeat: no-repeat;background-position: 5px center;}
+.checkCode {background-color: gray;font-family: Arial;font-style: italic;color: white;border: 0;padding: 2px 3px;letter-spacing: 3px;font-weight: bolder;width: 55px;}
+.book_list_info p {color: #333;margin: 0 auto;padding: 0 0 0 20px;line-height: 150%;font-size: 12px;}
+.book_list_info p img {padding: 0;margin: 0 auto;}
+.book_list_info h3 {color: #333;font-size: 14px;}
+.book_list_info h3 a {color: #034581;font-weight: bold;margin-left:15px;font-size:18px;}
+.book_list_info h3 a:hover {color: #034581;text-decoration: underline;}
+.book_list_info span {float: right;padding-right: 10px;font-size: 14px;color: #666;font-weight: bold;}
+.book_list_info p span {float: right;padding-right: 10px;color: #999;font-size: 14px;}
+.pagelist {font-size: 13px;text-align: right;	margin:10px 20px 50px 20px;}
+.pagelist input {/*line-height: 8px;*/width: 30px;}
+.pagelist a {margin-left: 3px;}
+/*DIV css开始*/
+.MVC_Div_MainDiv {position: fixed;left: 0px;right: 0px;overflow: hidden;margin: 0px;padding: 0px;border: #CCC 1px solid;background: url("/images/loading2.gif") repeat-x #FFFFFF;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;-webkit-box-shadow: #666 0px 0px 10px;-moz-box-shadow: #666 0px 0px 10px;box-shadow: #666 0px 0px 10px;}
+.MVC_Div_BigDiv {position: fixed;left: 0px;top: 0px;width: 100%;background-color: #dddddd;filter: alpha(opacity=20);-moz-opacity: 0.2;-khtml-opacity: 0.2;opacity: 0.2;margin: 0px;padding: 0px;}
+.MVC_Div_Tr1_1 {cursor: default;font-size: 14px;color: #666666;font-weight: bold;padding: 0px 3px;line-height: 24px;height: 24px;-moz-user-select: none;}
+.MVC_Div_Tr1_2 {background: url("~/images/loading2.gif") no-repeat center center;cursor: pointer;height: 24px;-moz-user-select: none;}
+/*DIV css结束*//*MVC_Calendar css开始*/
+#MVC_Calendar {position: absolute;z-index: 9999;background-color: White;}
+.MVC_CalendarToday {color: White;background-color: #1874CD;}
+.MVC_CalendarSelect {color: White;background-color: #104E8B;}
+#MVC_CalendarTable {border: 1px solid #ccc;}
+#MVC_CalendarTable td {font-size: 14px;text-align: center;padding: 4px 5px;cursor: pointer;border: 1px solid White;white-space: nowrap;}
+#MVC_CalendarHead td {color: White;background-color: #104E8B;font-weight: bold;border: none;white-space: nowrap;}
+.MVC_CalendarButton div {text-align: right;padding: 0px;}
+.MVC_CalendarButton span {border: 1px solid #104E8B;padding: 2px 5px;font-size: 12px;}
+.MVC_CalendarMonth {padding: 20px;}
+/*MVC_Calendar css开始*/
+.myZhengWen {position: relative; line-height: 25px; margin:10px 20px; font-size: 16px;font-style: italic;}
+.myZhengWen span{font-size: 16px;}
+.myZhengWen strong{margin-right: 15px;}
+.myZhengWen a{font-weight: bold; text-decoration: underline;}
+.mySelect {width: 190px;height: 38px;padding: 8px 0; border-color: #e9e9e9;}
+.tinfo {color: red;font-size: 16px;text-align: center; line-height: 40px; margin: 0px auto; background-color: rgba(243,222,207,1.00)}
+.xfks_cont{margin: 0 auto; width: 500px; margin-top: 40px;}
+.pnbtn {margin-top: 50px;text-align: center;}
+.sbbtn {margin-top: 10px;text-align: center;}
+/*书籍详情*/
+.bookdet_l{ min-width:750px; margin-right: 20px; margin-left: 40px; float: left;}
+.bookdet_r{width: 200px; float: left; margin-top: 61px;}
+.change_nav{border-bottom: 1px solid #dedede;}
+.change_nav input{cursor: pointer;}
+.bookinfo{ margin: 20px 0; background: #f3f3f3;box-shadow: 0px 3px 5px #ccc;}
+.bookinfo li{line-height: 25px; border-bottom: 1px dotted #e5e5e5; padding: 10px 15px;}
+.bookinfo li span{font-weight: bold; margin-right: 10px;}
+.bookinfo_btn{margin-bottom: 50px;}
+.bookinfo_btn strong{margin-left: 20px;}
+.bookinfo_btn input{font-size: 16px;}
+.info_table{background: #f8f8f8;}
+.info_table tr{line-height: 34px;}
+.info_table tr td{padding-left: 8px;}
+.info_chat{height: 250px; background: #f8f8f8; margin-top: 10px; border:1px solid #ccc;}
+.oneline_btn{margin: 20px;}
+.bookcomment{ background: #f8f8f8; border: 1px solid #ccc; padding: 15px; margin: 10px 0;}
+.xq_xgzy,.xq_2code{margin-bottom: 20px;}
+.xq_xgzy h4,.xq_2code h4{ font-size: 16px; font-weight: bold; margin-bottom: 6px;}
+.xq_2code img{width: 200px; height: auto;}
+/*信息发布*/
+.search_result{ margin: 20px;}
+.s_r_li{ font-size: 16px; line-height: 32px;}
+.s_r_li span{ margin: 0 6px;}
+.s_r_li a{ font-weight: bold; text-decoration: underline;}
+/*帮助文档*/
+.help_l{ width: 160px; float:left;margin-left:10px}
+.help_r{ padding:0 10px 10px 10px; float:left;width:760px}
+.help_box{}
+.help_menu a{display: block; font-size: 14px;font-weight: bold;line-height: 30px;}
+.help_text{line-height:25px;}
+.help_text p strong{font-size: 16px;}
+.help_text img{margin: 20px 0;}
+.homepage{width: 820px; height: 560px; margin: 0 auto;margin-top: 70px;}
+.homepage li{ float:left; width:244px; height:170px; background:#fcfcfc; margin:12px; box-shadow:#ccc 0px 5px 15px; text-align:center; padding:28px 0 0 0;}
+.homepage li a{display:block; width:244px; height:170px;  color:#444; font-size:18px;}
+.homepage li i{display:block; width:125px; height:98px; margin:0 auto; }
+i.img_rmjg{ background: url(../images/indexjpg/img_rmtj.png);}
+i.img_xkck{ background: url(../images/indexjpg/img_xkck.png);}
+i.img_qkdh{ background: url(../images/indexjpg/img_qkdh.png);}
+i.img_dzjg{ background: url(../images/indexjpg/img_dzjg.png);}
+i.img_xxfb{ background: url(../images/indexjpg/img_xxfb.png);}
+i.img_wdtsg{ background: url(../images/indexjpg/img_wdtsg.png);}
+
+
+/*弹窗*/
+.popup_box{margin: 10px 0 0 20px;} 
+.popup_box b{width:55px; line-height: 30px; }
+.popup_text01{margin-bottom: 10px;}
+
+.popup_text01 input{ width:235px; height: 32px; line-height: 32px; border: 1px solid #ccc; padding: 0 4px;}
+.popup_text02 input{width:80px; height: 32px; border: 1px solid #ccc; line-height: 32px;}
+
+.popup_btn{ text-align: center; margin: 0 auto;}
+.popup_btn input{width: 150px; height: 30px; line-height: 30px; background: #2c70a1; border-radius: 2px; color: #fff;font-size: 13px;}
+
+
+.tsfl_l h5{float:left;}
+.tsfl_sele{float:left; position:relative;}
+.tsfl_sele p{font-size:16px; margin:0 10px; line-height:30px; width:100px; text-align:center; border-bottom:2px solid #2c70a1;}
+.tsfl_sele ul{position:absolute; top:-8px; left:10px; background:#fff; box-shadow:#ccc 1px 0 10px;}
+.tsfl_sele ul li{ width:120px; height:30px; padding:10px; background:#fff; font-size:16px; line-height:30px; text-align:center;}
+.nofound_box{margin:0 auto; width:800px; background:#fcfcfc; box-shadow:#ccc 0px 5px 15px; padding:30px; margin-top:50px;}
+.nofound_box h4{font-size:20px; font-weight:bold;}
+.nofound_box p{font-size:15px; line-height:30px;}
+.jy_cont{ margin-top:30px;}
+.jy_cont h5{ font-size:18px; font-weight:bold;}
+.jy_cont li{line-height:30px;}
+.search_close{ display:inline-block; width:28px; height:27px; background: url(../images/close_btn.png); position:absolute; top:10px; right:370px; cursor: pointer;}
+.search_jg01,.search_jg02{ display:inline-block; width:11px; height:27px; background:url(../images/xiegang.png); cursor: pointer;}
+.search_jg01{ position:absolute; right:275px; top:10px;}
+.search_jg02{ position:absolute; right:110px; top:10px;}
+.logo_box{display:inline-block; height:50px; width:50px; overflow:hidden; border-radius:100px; line-height:40px; background:#fff; vertical-align:middle;}
+.logo_box img{ height:50px; width:auto;}
+.clc_tit {
+        font-weight: 400;
+        height: 40px;
+        font-size: 16px;
+        line-height: 40px;
+        text-align: center;
+        color: #2c70a1;
+    }
+.listyle {
+        text-indent: 10px;
+        padding-left: 45px;
+        padding-right: 4px;
+        width: 79%;
+        height: 40px;
+        line-height: 40px;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;   
+    }
+
+/*最新出版*/
+.zxcb li {
+        float: left;
+        width: 150px;
+        margin: 27px 0 0px 80px;
+        list-style: none;
+    }
+
+.zxcb li pic {
+            display: block;
+            width: 125px;
+            margin: 0 auto;
+            border: 1px solid #cccccc;
+            padding: 2px;
+        }
+
+.zxpic img {
+                width: 125px;
+                height: 176px;
+            }
+.zxcb i  {
+        color: #aaa;
+        display: block;
+        line-height: 40px;
+    }
+  
+ 
+/*我的荐购*/ 
+.my_recom_box li p
+ {
+    border-bottom: 1px dotted #ccc;
+    width: 300px;
+    height: 42px;
+    line-height: 42px;
+}
+.my_recom_box li p a {
+    display: inline-block;
+    width: 210px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.my_recom_box li p i {
+    float: right;
+   
+    display: inline-block;
+    width: 64px;
+    height: 18px;
+    line-height: 18px;
+    color: #2c70a1;
+    margin-top: 16px;
+    font-size: 12px;
+}
+/*推荐之星*/
+.tjzx{ border:1px solid #ebebeb}
+ .tjzx li{ position:relative; min-height:100px; }
+.tjzx li i{ background:url(../images/reader_icon.png) no-repeat 0 -275px; display:inline-block; width:22px; height:61px; text-align:center; color:#fff; line-height:15px; padding-top:3px; position:absolute; left:0; top:0}
+.tjzx li img{ width:80px; height:80px; position:absolute; left:40px; top:50px;border-radius:50px; }
+.tjzx li p{ margin:0 40px; border-bottom:1px dotted #d9d9d9 ;min-height:88px; padding:50px 0 50px 100px; vertical-align:top}
+ .tjzx span.name{ display:block; font-size:18px; margin-bottom:20px;}
+ .tjzx span.school{ display:block; color:#aaa; line-height:26px;}
+.tjzx span.all{ display:block; color:#aaa}
+
+/*荐购搜索结果*/
+
+
+.searchresultfl ul li:hover{ background:#f4f4f4;}
+.searchresultfl ul li a{ display:block; height:40px;line-height:40px;}
+.searchresultfl ul p a{ padding-left:4px; padding-right:4px; display:block; height:40px; width:212px; line-height:40px;}
+.searchresultfl ul li a i{ font-size:12px; color:#999;}
+.searchresultfl .sr_l_tit{ height:40px; font-size:16px; line-height:40px; color:#ff6600; margin-left:0px;}
+.searchresultfl .sr_l_tit:hover{ background:#fff;}
+.searchresultfl span{ margin-left:10px;}
+.sr_l_tit i{ display:block; width:22px; height:22px; background-image:url(/readerrecommend/images/portal/icon.png); margin-top:8px;}
+.sr_l_tit span{ color:#333; font-size:16px;}
+.puplish_yearbtn{ background-position:-1px -237px; margin-left:64px; margin-right:6px;}
+.puplish{ background-position:-1px -280px; margin-left:67px; margin-right:6px;}
+.writer{ background-position:-1px -190px; margin-left:75px; margin-right:6px;}
+.publish_year li{ height:40px;}
+.sr_more img{ margin-top:16px;}
+.sr_more span{ color:#999;}
+.sr_background{ background:#f4f4f4;}
+
+.search_recom{ margin:0 auto; margin-bottom:40px; margin-top:20px; width:480px; height:140px; background:#fefcf7; border:1px solid #f6efdc; border-radius:2px;}
+.search_recom p{ font-size:18px; text-align:center; color:#79715c; margin-top:25px;}
+.search_recom a{    margin: 0 auto;
+    display: block;
+    width: 210px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    border-radius: 2px;
+    margin-top: 30px;
+	text-align:center;}
+.search_recom a:hover{ text-decoration:none;}
+
+
+
+.b_stit_l span{ color:#ff6600; margin-left:4px; margin-right:4px; font-weight:bold;}
+
+
+.sr_bookbox{ text-align:center; width:116px; height:162px; border-radius:6px; overflow:hidden; box-shadow:1px 1px 7px #ddd; float:left }
+.sr_bookbox img{ height:100%; width: 100%;}
+.sr_bookbox{ margin-right:22px;}
+
+
+
+
+.redjg{ background:#68c04a; color:#fff}
+
+
+/*书籍*/
+
+.book_lie ul{ margin-left:1px;}
+.book_lie li{ float:left; width:358.5px; height:175px; padding:20px; border:1px solid #e4e4e4 ; margin:-1px 0 0 -1px; position:relative}
+.book_lie li:hover{ background:#fafafa}
+
+.book_lie p{ padding-left:138px;}
+.book_lie span{ display:block}
+
+.book_lie span.name a{ color:#555}
+
+.book_lie span.info{ color:#999 ; margin-bottom:13px; font-size:12px;float:left  }
+.book_lie span em{ display:inline-block; width:15px; height:18px; background:url(../images/reader_icon.png) no-repeat ; vertical-align:middle ; margin-right:3px;}
+.book_lie span em.press{ background-position:0 -358px ;}
+.book_lie span em.time{ background-position:0 -383px ;margin-left:14px;font-size:12px;}
+.book_lie p a.btn{ margin-right:12px;}
+a.img_box img{ width:100%; height:100%}
+
+
+
+.btitle{ height:30px; line-height:30px;margin:30px 0 30px 0;}
+
+.btitle a.more{ float:right; width:auto; color:#555; }
+/*书籍详情*/
+
+.fl{ float:left;}
+.fr{ float:right;}
+.clear{ clear:both;}
+.bookdetailwrap{ width:1200px; margin:0 auto; margin-top:26px;}
+
+.bookdetail_r{ width:310px;border: 1px solid #dddddd;}
+.bookcontent_r{ width:620px;}
+.bookcontent_r .fontred{ color:#fa2323;}
+
+
+.bookcontent_r h3 a{ margin-left:10px; display:inline-block; padding-left:20px; width:65px; height:20px; line-height:20px; background:#48b0eb url(../images/ebookicon.png) no-repeat; background-position:4px 3px; font-size:12px; color:#fff; border-radius:2px;}
+.bookcontent_r i{ color:#999;}
+
+.readcount{ height:40px; margin-right:25px;}
+.readcount em{ color:#57ba59; font-size:24px;} 
+
+
+
+
+
+
+.bookcon_btn .readnow span{ color:#fff;}
+.readnowbtn{ background-position:-4px 0px;}
+.addbookshelfbtn{ background-position:-2px -26px;}
+.bookcon_btn .readnow_grey{ background:#cecece; border:1px solid #cecece;}
+.bookcon_btn .readnow_grey:hover{ background:#cecece; cursor:default;}
+
+
+.bookcon_btn .addshelf{ width:142px; height:38px; line-height:40px; color:#333; border:1px solid #ddd;}
+.bookcon_btn .addshelf span{ color:#333;}
+.bookcon_btn .addshelf_grey{ width:142px; height:40px; line-height:40px; background-color: #fafafa ;color:#d3d3d3; border:1px solid #ddd;}
+.bookcon_btn span{ font-size:16px; color:#999; }
+.bookcon_btn em{ color:#fa2323; font-size:13px; margin-top:6px;}
+
+
+.bookdetail_subnav img{ position:absolute; left:52px; bottom:-1px;}
+.bookdetail_subnav .b_s_current{ font-weight:bold; color:#333;}
+.bookdetail_subnav a{ margin-top:10px; display:block; width:118px; height:16px;text-align:center; color:#666; float:left; font-size:16px; line-height:16px;}
+.bookdetail_subnav a:hover{ color:inherit;}
+.b_s_intro{ border-right:1px solid #ddd;}
+
+.alsoread{ height:86px; padding-top:15px; padding-bottom:15px; border-bottom:1px dotted #ddd;}
+
+
+.alsoread_r{ width:214px; height:86px;}
+
+.span {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    font-weight: normal;
+    border: 0;
+    font-family: "微软雅黑";
+}
+
+
+    
+

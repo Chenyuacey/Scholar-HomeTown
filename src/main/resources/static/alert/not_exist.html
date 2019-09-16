@@ -1,0 +1,16 @@
+{% extends "oj_base/base.html" %}
+{% load static %}
+{% block  标题 %} 数据不存在 {%endblock%}
+
+
+{% block 主体 %}
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin:10px;">
+            <strong><center>数据不存在！</center></strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+{% endblock %}
+
