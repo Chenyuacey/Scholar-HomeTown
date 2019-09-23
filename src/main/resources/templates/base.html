@@ -1,0 +1,266 @@
+﻿<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widthdevice-width, initial-scale=1.0">
+    <meta name="Content-Type-Script" content="text/javascript">
+    <meta name="Content-Type-Style" content="text/css">
+    <meta name="author" content="owwwlab.com">
+    <link href="/journal_sys/icons/AHU.png" rel="shortcut icon" >
+    <link href="/journal_sys/bootstrap-4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="/journal_sys/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="/journal_sys/css/base.css" rel="stylesheet">
+    <link href="/journal_sys/css/vendors.css" rel="stylesheet" type="text/css">
+    <link href="/journal_sys/css/vendors-overwrites.css" rel="stylesheet" type="text/css">
+    <link href="/journal_sys/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="/journal_sys/css/demo3.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/journal_sys/css/style1.css"> <!-- Resource style -->
+
+    <script src="/journal_sys/css/jquery.min.js"></script>
+    <script src="/journal_sys/css/vendors.js"></script>
+    <title>Welcome to AHU Journal manage system </title>
+</head>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a href="" target="_blank"><img src="/journal_sys/icons/AHU.png" width="47" height="38" alt="icpc_logo"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="navbar-toggler" type="button" data-target="#navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+
+        <ul class="navbar-nav" >
+            <li class="nav-item ">
+                <a class="nav-link" href="/"><span class="oi oi-home" title="home" aria-hidden="true"></span> 进入首页</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item  ">
+                <a class="nav-link" href="/search"><span class="oi oi-tag" title="tag" aria-hidden="true"></span>查询期刊</a>
+            </li>&nbsp;&nbsp;
+            <!--<div th:if="${user}">-->
+            <li class="nav-item  "  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/enter"><span class="oi oi-list" title="list" aria-hidden="true"></span>入库登记</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item  "  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/enterpaper"><span class="oi oi-list" title="list" aria-hidden="true"></span>内容登记</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item"  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/borrow"><span class="oi oi-list" title="list" aria-hidden="true"></span>借阅处理</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item"  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/return"><span class="oi oi-list" title="list" aria-hidden="true"></span>归还处理</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item  "  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/zd"><span class="oi oi-list" title="list" aria-hidden="true"></span>期刊征订</a>
+            </li>
+            <!--</div>-->
+
+
+        </ul>
+
+        <ul class="navbar-nav pull-right">
+            <li class="dropdown" th:if="${user}"><a href="#" class="dropdown-toggle nav-item navbar-expand-md" data-toggle="dropdown" th:text="欢迎你，+${user.name}"><span
+            ></span>Admin</a>
+                <ul class="dropdown-menu" >
+                    <li class="nav-item navbar-expand-md"><a href="/user/me">我的订阅</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-item navbar-expand-md"><a href="/logout">注销</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown nav-item navbar-expand-md" th:if="${user == Null}"><a class="nav-link" href="/login" >登录</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- background="journal_sys/images/back.png" -->
+<!--不同页面的部分，从这里开始-->
+  <body>
+	<div class="container pull-up-0">
+		<h2 ><font size="5"><b>Welcom to AHU Journal manage system  欢迎来到安徽大学期刊管理系统</b></font></h2><br><br>
+		<div class="div-inline">
+                  <div class="col-md-8">
+                    <h3 class="with-underline">Journal updating 库存更新</h3>
+                      <ul class="with-shaded-label">
+                          <div class="journal" th:each="journal:${journals}">
+                              <li>
+                                  <h3 class="title" > <span class="shaded-label" th:text="${journal.startYear}">2019-4</span><span th:text="${journal.name}" style="color:#800000">CVPR IEEE Conference on Computer Vision and Pattern Recognition</span> <span th:text="${journal.year}"></span>年，第<span th:text="${journal.issue}"></span>期&nbsp;&nbsp;<span th:text="${journal.language}"></span></h3><!--填写你想写的 -->
+                                  <div class="description">
+
+                                      <p><b th:text="${journal.issn}">issn</b>,<span th:text="${journal.name}">,</span> <span th:text="${journal.publisher}">IEEE</span><br>
+                                          <a th:href="@{~/book(id = ${journal.bookId})}">新期刊入库,欢迎借阅</a></p>
+                                  </div>
+                              </li>
+                          </div>
+
+                      </ul>
+                  </div>
+                </div>
+		<div class="div-inline">
+			<div class="col-md-4">
+                    <h3 class="with-underline">Borrow News 最近借阅</h3>
+                    <ul class="with-shaded-label">
+                      <li th:each="b:${binfo}">
+                          <h3 class="title" style="color:#00CED1" >《<span th:text="${b.jour.name}"></span>》<span th:text="${b.reg.year}"></span>年<span th:text="${b.reg.issue}"></span>期</h3><!--填写你想写的 -->
+                        <div class="description">
+							&nbsp;&nbsp;&nbsp;&nbsp;借出时间：<span th:text="${#dates.format(b.bor.borrowDate,'yyyy-MM-dd HH:mm:ss')}">2018.8.12 </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>	  
+			  </div>
+			  
+			<div class="sp-blank-50 shadow-line"></div>
+			<h3 class="with-underline">Selected Journal 精选期刊</h3>
+			<div class="row m-top-50">
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/zdh.png" width="39" height="39"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2018</span>
+					  Acta Automatica Sinica
+					<br>
+					自动化学报</h6>
+				</div>
+			  </div>
+				
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/JSJX.png" width="39" height="39"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2017</span>                          
+					  Chinese Journal of Computers
+					<br>
+					计算机学报</h6>
+				  </div>
+			  </div>
+				
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/QH.png" width="42" height="42"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2017</span>                          
+					 Tsinghua Science and Technology
+					<br>
+					清华大学学报</h6>
+				</div>
+			  </div>
+				
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/WH.png" width="39" height="39"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2017</span>                          
+					  Journal of Wuhan University
+					<br>
+					武汉大学学报</h6>
+				</div>
+			  </div>   
+				
+			</div>
+			  
+			<div class="row m-top-50">
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/RJ.png" width="39" height="39"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2016</span>
+					  Journal of Software
+					<br>
+					软件学报</h6>
+				</div>
+			  </div>
+				
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/JYF.png" width="39" height="39"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2015</span>                          
+					  Journal of Computer Research and Development
+					<br>
+					计算机研究与发展</h6>
+				</div>
+			  </div>
+				
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/JSJGC.png" width="39" height="39"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2012</span>                          
+					  Computer Engineering
+					<br>
+					计算机工程</h6>
+				</div>
+			  </div>
+			  <div class="col-md-3">
+				<div class="icon-box ib-v4"><i><img  src="journal_sys/images/AHU.png" width="39" height="39"/></i>
+				  <h6 class="title with-shaded-label"><span class="shaded-label">2018</span>                          
+					  Journal of AnHui University
+					<br>
+					安徽大学学报</h6>
+				</div>
+			  </div>   
+				
+			</div>
+		</section>
+	  </section>
+	  <!-- #####End main area
+	  -->
+	  <div class="clearfix"></div>
+	</div>
+  </body>
+  <!--不同页面的部分，到这里结束-->
+  
+  <!-- Footer -->
+    <section id="footer">
+      <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+          <p class="h6">安徽大学期刊管理系统 CopyRight@Software Design Group-10</a></p>
+        </div>
+		<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+          <p class="h6">Powered by:Zhiyi Chen, Keyu Zhao, Guowang Zhuang, Yingjie Wang, Yuze Zhao</a></p>
+        </div>
+        
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p class="h6">&copy All right Reversed.<a class="ml-2" href="#">AHU Journal Manage System</a></p>
+          </div>
+          </hr>
+        
+      </div>
+    </section>
+    <!-- Footer -->
+	
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="journal_sys/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
+    <script src="journal_sys/bootstrap-4.1.3/js/bootstrap.min.js"></script> 
+    <script src="journal_sys/js/scroll.js"></script>
+    <script src="journal_sys/js/footer.js"></script>
+	
+	<!--<script type="text/javascript">
+	/* 鼠标特效 */
+	var a_idx = 0;
+	jQuery(document).ready(function($) {
+		$("body").click(function(e) {
+			var a = new Array("❤富强❤","❤民主❤","❤文明❤","❤和谐❤","❤自由❤","❤平等❤","❤公正❤","❤法治❤","❤爱国❤","❤敬业❤","❤诚信❤","❤友善❤");
+			var $i = $("<span></span>").text(a[a_idx]);
+			a_idx = (a_idx + 1) % a.length;
+			var x = e.pageX,
+			y = e.pageY;
+			$i.css({
+				"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+				"top": y - 20,
+				"left": x,
+				"position": "absolute",
+				"font-weight": "bold",
+				"color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+			});
+			$("body").append($i);
+			$i.animate({
+				"top": y - 180,
+				"opacity": 0
+			},
+			1500,
+			function() {
+				$i.remove();
+			});
+		});
+	});
+	</script>-->
+</html>
