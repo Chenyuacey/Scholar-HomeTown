@@ -83,7 +83,7 @@ public class IndexController {
     public String enterPaper(){return "enterpaper";}
 
     @GetMapping(value = "/admin/zd")
-    public String zd(){return "zhengding1";}
+    public String zd(){return "zhengding";}
 
     @GetMapping(value = "/search")
     public String search(){return "list";}
