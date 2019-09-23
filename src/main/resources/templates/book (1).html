@@ -1,0 +1,215 @@
+﻿<!doctype html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widthdevice-width, initial-scale=1.0">
+    <meta name="Content-Type-Script" content="text/javascript">
+    <meta name="Content-Type-Style" content="text/css">
+    <meta name="author" content="owwwlab.com">
+    <link href="journal_sys/icons/AHU.png" rel="shortcut icon" >
+    <link href="journal_sys/bootstrap-4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="journal_sys/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="journal_sys/css/base.css" rel="stylesheet">
+    <link href="journal_sys/css/vendors.css" rel="stylesheet" type="text/css">
+    <link href="journal_sys/css/vendors-overwrites.css" rel="stylesheet" type="text/css">
+    <link href="journal_sys/css/styles.css" rel="stylesheet" type="text/css">
+    <link href="journal_sys/css/demo3.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="/journal_sys/css/style1.css"> <!-- Resource style -->
+
+    <script src="journal_sys/css/jquery.min.js"></script>
+    <script src="journal_sys/css/vendors.js"></script>
+    <title>Welcome to AHU Journal manage system </title>
+</head>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a href="" target="_blank"><img src="/journal_sys/icons/AHU.png" width="47" height="38" alt="icpc_logo"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="navbar-toggler" type="button" data-target="#navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse">
+
+        <ul class="navbar-nav" >
+            <li class="nav-item ">
+                <a class="nav-link" href="/"><span class="oi oi-home" title="home" aria-hidden="true"></span> 进入首页</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item  ">
+                <a class="nav-link" href="/search"><span class="oi oi-tag" title="tag" aria-hidden="true"></span>查询期刊</a>
+            </li>&nbsp;&nbsp;
+            <!--<div th:if="${user}">-->
+            <li class="nav-item  "  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/enter"><span class="oi oi-list" title="list" aria-hidden="true"></span>入库登记</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item  "  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/enterpaper"><span class="oi oi-list" title="list" aria-hidden="true"></span>内容登记</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item"  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/borrow"><span class="oi oi-list" title="list" aria-hidden="true"></span>借阅处理</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item"  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/return"><span class="oi oi-list" title="list" aria-hidden="true"></span>归还处理</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item  "  th:if="${user} and ${user.authority == 1}">
+                <a class="nav-link" href="/admin/zd"><span class="oi oi-list" title="list" aria-hidden="true"></span>期刊征订</a>
+            </li>
+            <!--</div>-->
+
+
+        </ul>
+
+        <ul class="navbar-nav pull-right">
+            <li class="dropdown" th:if="${user}"><a href="#" class="dropdown-toggle nav-item navbar-expand-md" data-toggle="dropdown" th:text="欢迎你，+${user.name}"><span
+            ></span>Admin</a>
+                <ul class="dropdown-menu" >
+                    <li class="nav-item navbar-expand-md"><a href="/user/me">我的订阅</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-item navbar-expand-md"><a href="/logout">注销</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown nav-item navbar-expand-md" th:if="${user == Null}"><a class="nav-link" href="/login" >登录</a>
+
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- background="journal_sys/images/back.png" -->
+<!--不同页面的部分，从这里开始-->
+ <body>
+    <h1 class="text-center" th:text="${journal.name}"><font size="5">计算机学报</font></h1><br>
+    <h5 class="text-center "><span th:text="${book.year}"></span>年<span th:text="${book.issue}"></span>期 </h5>
+	<h5 class="text-center" th:text="${journal.language}">文献类型：中文期刊 </h5>
+    <br>
+    <div class="container" style="width:70%">
+        <div class="card">
+            <div class="card-header">
+                <h4>基本信息</h4>
+            </div>
+			<div style="position:absolute; left:700px; top:65px; border:#000 solid 0px; z-index:9999;"><img  src="安徽大学报.jpg" width="300" height="460"/></div>
+            <div class="card-body" style="position:relative;" >
+                <p class="card-text">
+                <h4 class="with-underline"><b>期刊名：</b><span th:text="${journal.name}"></span> </h4>
+				<h4 class="with-underline"><b>CN：</b><span th:text="${journal.cn}"></span></h4>
+				<h4 class="with-underline"><b>ISSN：</b><span th:text="${journal.issn}"></span></h4>
+				<h4 class="with-underline"><b>邮发代号：</b><span th:text="${journal.mailCode}"></span></h4>
+				<h4 class="with-underline"><b>出版周期：</b><span th:text="${journal.pubCycle}"></span></h4>
+				<h4 class="with-underline"><b>出版地：</b><span th:text="${journal.pubPlace}"></span></h4>
+				<h4 class="with-underline"><b>主办单位：</b><span th:text="${journal.publisher}"></span></h4>
+				<h4 class="with-underline"><b>创刊年：</b><span th:text="${journal.startYear}"></span></h4>
+				<h4 class="with-underline"><b>语种：</b><span th:text="${journal.language}"></span></h4>
+				<h4 class="with-underline"><b>开本：</b><span th:text="${journal.size}"></span>开</h4>
+				</p>
+            </div>
+        </div><br>
+		
+         <div class="card">
+            <div class="card-header">
+                <h4>期刊内容</h4>
+            </div>
+            <div class="card-body" >
+                <p class="card-text">
+                <div th:each="article:${articles}">
+                    <h4 class="with-underline"><b>论文题目：</b><span th:text="${article.articleName}"></span></h4>
+                    <ul>
+                        <li><b>&nbsp;&nbsp;&nbsp;&nbsp;作者：</b><span th:text="${article.author}"></span></li>
+                        <li><b>&nbsp;&nbsp;&nbsp;&nbsp;关键词：</b><span th:text="${article.keyword1}"></span>;&nbsp;<span th:text="${article.keyword2}"></span>;&nbsp;<span th:text="${article.keyword3}"></span>;&nbsp;<span th:text="${article.keyword4}"></span>;&nbsp;<span th:text="${article.keyword5}"></span></li>
+                        <li><b>&nbsp;&nbsp;&nbsp;&nbsp;页码：</b><span th:text="${article.pageNum}"></span></li>
+                    </ul><br>
+                </div>
+				</p>
+            </div>
+        </div><br>
+		
+		<div class="card">
+            <div class="card-header">
+                <h4>期刊去向</h4>
+            </div>
+            <div class="card-body" th:if="${borrow}">
+                <p class="card-text">
+				<!-- 未借出时
+				<b>在馆<br>
+				-->
+				<b>已被借阅</b><br>
+				<b>借阅时间：</b><span th:text="${#dates.format(borrow.borrowDate,'yyyy-MM-dd HH:mm:ss')}">Time</span><br>
+				</p>
+            </div>
+            <div class="card-body" th:if="${book.borrow} == -1">
+                <p class="card-text">
+                    <b>在馆</b><br>
+                </p>
+            </div>
+        </div><br>
+        </div><br><br><br>
+ </div>
+ 
+ </body>
+ 
+ 
+    <section id="footer">
+      <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+          <p class="h6">安徽大学期刊管理系统 CopyRight@Software Design Group-10</a></p>
+        </div>
+		<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+          <p class="h6">Powered by:Zhiyi Chen, Keyu Zhao, Guowang Zhuang, Yingjie Wang, Yuze Zhao</a></p>
+        </div>
+        
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+            <p class="h6">&copy All right Reversed.<a class="ml-2" href="#">AHU Journal Manage System</a></p>
+          </div>
+          </hr>
+        
+      </div>
+    </section>
+    <!-- Footer -->
+	
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="journal_sys/jquery-3.3.1/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/popper.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> 
+    <script src="journal_sys/bootstrap-4.1.3/js/bootstrap.min.js"></script> 
+    <script src="journal_sys/js/scroll.js"></script>
+    <script src="journal_sys/js/footer.js"></script>
+	<!--<script type="text/javascript">
+	/* 鼠标特效 */
+	var a_idx = 0;
+	jQuery(document).ready(function($) {
+		$("body").click(function(e) {
+			var a = new Array("?富强?","?民主?","?文明?","?和谐?","?自由?","?平等?","?公正?","?法治?","?爱国?","?敬业?","?诚信?","?友善?");
+			var $i = $("<span></span>").text(a[a_idx]);
+			a_idx = (a_idx + 1) % a.length;
+			var x = e.pageX,
+			y = e.pageY;
+			$i.css({
+				"z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+				"top": y - 20,
+				"left": x,
+				"position": "absolute",
+				"font-weight": "bold",
+				"color": "rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"
+			});
+			$("body").append($i);
+			$i.animate({
+				"top": y - 180,
+				"opacity": 0
+			},
+			1500,
+			function() {
+				$i.remove();
+			});
+		});
+	});
+	</script>-->
+	
+  
+  
+</html>
