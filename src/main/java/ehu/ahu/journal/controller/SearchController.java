@@ -36,40 +36,40 @@ public class SearchController {
      */
     @PostMapping("/search")
     public String search(Model model,
-                         @Param("word") String word){
+                         @Param("word") String word) {
         List<SearchInfo> searchinfos = new ArrayList<>();
         try {
-            List<Article> articles =searchService.searchArticle(word,0,10,"<b>","</b>");
-            if (articles != null){
-                for (Article article:articles){
-                    if (article.getId() == 0){
+            List<Article> articles = searchService.searchArticle(word, 0, 10, "<b>", "</b>");
+            if (articles != null) {
+                for (Article article : articles) {
+                    if (article.getId() == 0) {
                         continue;
                     }
                     Article article1 = articleService.selectArtcleById(article.getId());
                     Register register = registerService.selectRegisterbyId(article1.getJournalId());
                     Journal journal = journalService.selectJournalbyId(register.getJournalId());
-                    if (article.getArticleName() == null){
+                    if (article.getArticleName() == null) {
                         article.setArticleName(article1.getArticleName());
                     }
-                    if (article.getAuthor() == null){
+                    if (article.getAuthor() == null) {
                         article.setAuthor(article1.getAuthor());
                     }
-                    if (article.getKeyword1() == null){
+                    if (article.getKeyword1() == null) {
                         article.setKeyword1(article1.getKeyword1());
                     }
-                    if (article.getKeyword2() == null){
+                    if (article.getKeyword2() == null) {
                         article.setKeyword2(article1.getKeyword2());
                     }
-                    if (article.getKeyword3() == null){
+                    if (article.getKeyword3() == null) {
                         article.setKeyword3(article1.getKeyword3());
                     }
-                    if (article.getKeyword4() == null){
+                    if (article.getKeyword4() == null) {
                         article.setKeyword4(article1.getKeyword4());
                     }
-                    if (article.getKeyword5() == null){
+                    if (article.getKeyword5() == null) {
                         article.setKeyword5(article1.getKeyword5());
                     }
-                    if (article.getJournalId() == 0){
+                    if (article.getJournalId() == 0) {
                         article.setJournalId(article1.getJournalId());
                     }
                     SearchInfo searchInfo = new SearchInfo();
@@ -78,19 +78,17 @@ public class SearchController {
                     searchInfo.setRegister(register);
                     searchinfos.add(searchInfo);
                 }
-                if (searchinfos.size() > 0){
-                    model.addAttribute("searchs",searchinfos);
+                if (searchinfos.size() > 0) {
+                    model.addAttribute("searchs", searchinfos);
                 }
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             return "list";
         }
     }
-
-
 
 
 }

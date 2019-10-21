@@ -40,7 +40,6 @@ public class PassportInterceptor implements HandlerInterceptor {
             for (Cookie cookie : httpServletRequest.getCookies()) {
                 if (cookie.getName().equals("ticket")) {
                     ticket = cookie.getValue();
-
                     break;
                 }
             }
@@ -54,7 +53,6 @@ public class PassportInterceptor implements HandlerInterceptor {
             }
             int  id = loginTicket.getUserId();
             User user = userMapper.selectById(id);
-
             //将用户信息放入上下文
             hostHolder.setUser(user);
         }

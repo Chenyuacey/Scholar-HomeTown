@@ -21,7 +21,6 @@ public class NeedAdminInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         if (hostHolder.getUser() == null || hostHolder.getUser().getAuthority() != 1) {
-//            System.out.println("权限不够");
             httpServletResponse.sendRedirect("/error");
             return false;
         }

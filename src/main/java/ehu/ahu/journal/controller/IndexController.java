@@ -33,26 +33,26 @@ public class IndexController {
     BorrowService borrowService;
 
     @GetMapping(value = "/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @GetMapping(value = "/")
-    public String home(Model model){
+    public String home(Model model) {
         List<JournalInfo> journalInfos = new ArrayList<>();
-        List<Register> registers = registerService.selectLastedRegister(0,7);
-        List<Borrow> borrows = borrowService.selectLastedBrrow(0,7);
+        List<Register> registers = registerService.selectLastedRegister(0, 7);
+        List<Borrow> borrows = borrowService.selectLastedBrrow(0, 7);
         List<Map> borrowinfo = new ArrayList<>();
-        for (Borrow borrow:borrows){
+        for (Borrow borrow : borrows) {
             Register register = registerService.selectRegisterbyId(borrow.getRegisterId());
             Journal journal = journalService.selectJournalbyId(register.getJournalId());
-            Map<String,Object> map = new HashMap<>();
-            map.put("reg",register);
-            map.put("jour",journal);
-            map.put("bor",borrow);
+            Map<String, Object> map = new HashMap<>();
+            map.put("reg", register);
+            map.put("jour", journal);
+            map.put("bor", borrow);
             borrowinfo.add(map);
         }
-        for (Register register:registers){
+        for (Register register : registers) {
             Journal journal = journalService.selectJournalbyId(register.getJournalId());
             JournalInfo info = new JournalInfo();
             info.setName(journal.getName());
@@ -65,34 +65,51 @@ public class IndexController {
             info.setBookId(register.getId());
             journalInfos.add(info);
         }
-        model.addAttribute("journals",journalInfos);
-        model.addAttribute("binfo",borrowinfo);
-        return "base";}
+        model.addAttribute("journals", journalInfos);
+        model.addAttribute("binfo", borrowinfo);
+        return "base";
+    }
 
 
     @GetMapping(value = "/failed")
-    public String failed(){return "failed";}
+    public String failed() {
+        return "failed";
+    }
 
     @GetMapping(value = "/admin/borrow")
-    public String borrow(){return "borrow";}
+    public String borrow() {
+        return "borrow";
+    }
 
     @GetMapping(value = "/admin/enter")
-    public String enter(){return "enter";}
+    public String enter() {
+        return "enter";
+    }
 
     @GetMapping(value = "/admin/enterpaper")
-    public String enterPaper(){return "enterpaper";}
+    public String enterPaper() {
+        return "enterpaper";
+    }
 
     @GetMapping(value = "/admin/zd")
-    public String zd(){return "zhengding";}
+    public String zd() {
+        return "zhengding";
+    }
 
     @GetMapping(value = "/search")
-    public String search(){return "list";}
+    public String search() {
+        return "list";
+    }
 
     @GetMapping(value = "/admin/return")
-    public String areturn(){return "return";}
+    public String areturn() {
+        return "return";
+    }
 
     @PostMapping(value = "/admin/zd")
-    public String zd2(){return "bookqq";}
+    public String zd2() {
+        return "bookqq";
+    }
 
 
 }
