@@ -28,14 +28,13 @@ public class RegisterController {
                       @Param("year") int year,
                       @Param("issue") int issue){
         Journal journal = journalService.selectJournalByIssn(issn);
+        if (journal == null){
+            model.addAttribute("msg","期刊目录没有此期刊");
+            return "enter";
+        }
         Register  registerold = registerService.selectRegisterByYearAndIssue(year,issue,journal.getId());
         if (registerold != null){
             model.addAttribute("msg","期刊已入库，请勿重复入库");
-            return "enter";
-        }
-
-        if (journal == null){
-            model.addAttribute("msg","期刊目录没有此期刊");
             return "enter";
         }
         Register register = new Register();
